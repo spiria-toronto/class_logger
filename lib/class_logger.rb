@@ -15,7 +15,7 @@ module ClassLogger
         :max_size => nil,
         :keep => nil,
         :in => nil,
-        :path => "%{rails_root}/log",
+        :path => ENV['CLASS_LOGGER_PATH'] || "%{rails_root}/log",
         :file => "%{class_name}.log",
         :as => :logger,
         :formatter => proc{ |severity, time, program_name, message| "[%s,%s]: %s\n" % [severity, time, message] },
